@@ -1,8 +1,8 @@
 var rootElement = document.getElementById('root');
 var root = ReactDOM.createRoot(rootElement);
 
-// NATIVE REACT
-// const reactElement = React.createElement(
+//REACT NATIVE
+//const reactElement = React.createElement(
 //     'header',
 //     {className: 'site-header'},
 //     React.createElement('h1', {}, 'Hello from React!!!'),
@@ -17,12 +17,12 @@ var reactElement = React.createElement(
     React.createElement(
         "h1",
         null,
-        "H1 React element"
+        "Hello from JSX"
     ),
     React.createElement(
         "h2",
         null,
-        "H2 React element"
+        "React.js"
     )
 );
 
