@@ -16,7 +16,7 @@ body {
 .navigation p img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 25%;
 }
 
 .navigation {
@@ -113,53 +113,53 @@ h2 {
     text-align: center;
 }
 
-/* offers */
+/* services */
 
-.offers {
+.services {
     background: #1582B6;
     font-family: 'PT serif', serif;
     color: white;
     padding: 20px 30px;
 }
 
-.offers img {
+.services img {
     width: 70px;
 }
 
-.offers li {
+.services li {
     width: 28%;
     text-align: center;
     padding: 20px 30px;
 }
 
-.offers a {
+.services a {
     color: white;
 }
 
-/* camps */
+/* promos */
 
-.camps {
+.hot-promos {
     color: #5a7c8a;
     padding: 20px 0;
 }
 
-body>main>section.camps>p {
+body>main>section.hot-promos>p {
     width: 60%;
     text-align: center;
     margin: 0 auto;
     padding-bottom: 30px;
 }
 
-.camps img {
+.hot-promos img {
     width: 400px;
     height: 250px;
 }
 
-.camps li {
+.hot-promos li {
     width: 400px;
 }
 
-.camps li:not(:last-child) {
+.hot-promos li:not(:last-child) {
     padding-right: 40px;
 }
 
