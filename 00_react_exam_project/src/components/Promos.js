@@ -1,56 +1,16 @@
-export const Promos = () => {
+import { PromoDeal } from "./PromoDeal"
+
+export const Promos = (props) => {
     return (<section className="hot-promos">
         <h2>Lorem Ipsum</h2>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
         <ul>
-            <li>
-                <img src="./Images/photo-kids-playing-football.jpg" alt="kidsFootball" />
-                <section className="info">
-                    <div>
-                        <h3>Lorem Ipsum</h3>
-                        <p>15h February 2019</p>
-                    </div>
-                    <div>
-                        $35
-                    </div>
-                </section>
-                <section className="moreInfo">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                    <button>ENROLL TODAY</button>
-                </section>
-            </li>
-            <li>
-                <img src="./Images/swimming-pool.jpeg" alt="swimming" />
-                <section className="info">
-                    <div>
-                        <h3>Lorem Ipsum</h3>
-                        <p>15h February 2019</p>
-                    </div>
-                    <div>
-                        $35
-                    </div>
-                </section>
-                <section className="moreInfo">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                    <button>ENROLL TODAY</button>
-                </section>
-            </li>
-            <li>
-                <img src="./Images/kids_dogs_playing.jpg" alt="kidsFootball" />
-                <section className="info">
-                    <div>
-                        <h3>Dog Day</h3>
-                        <p>15h February 2019</p>
-                    </div>
-                    <div>
-                        $35
-                    </div>
-                </section>
-                <section className="moreInfo">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                    <button>ENROLL TODAY</button>
-                </section>
-            </li>
+            <PromoDeal src="https://www.qtrainers.com/upload/original-image/2017/09/topic-281059a95d687479f.jpg"/>
+            
+            <PromoDeal src="https://www.techyv.com/sites/default/users/Images-Folder/AmiBroker-Stock-Charting-Software.jpg"/>
+
+            <PromoDeal src="https://t2conline.com/wp-content/uploads/2018/07/IMAGE-_a-href_http-__www.freepik.com__Designed-by-Freepik__a_.png"/>
+            
         </ul>
     </section>)
 }
