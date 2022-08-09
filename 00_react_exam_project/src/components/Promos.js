@@ -5,7 +5,7 @@ export const Promos = (props) => {
         <h2>Lorem Ipsum</h2>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
         <ul>
-            <PromoDeal src="https://www.qtrainers.com/upload/original-image/2017/09/topic-281059a95d687479f.jpg"/>
+            <PromoDeal title={props.promos[0].title} src="https://www.qtrainers.com/upload/original-image/2017/09/topic-281059a95d687479f.jpg"/>
             
             <PromoDeal src="https://www.techyv.com/sites/default/users/Images-Folder/AmiBroker-Stock-Charting-Software.jpg"/>
 
