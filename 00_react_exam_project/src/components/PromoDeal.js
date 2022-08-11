@@ -1,5 +1,31 @@
+import { useState, useEffect } from "react"
+
 export const PromoDeal = (props) => {
-    return (<li>
+    //useEffect only on load
+    useEffect(() => {
+        console.log('Mounting promos');
+    }, []);
+
+    const [highlighted, setHighlighted] = useState(false)
+    const clickHandler = () => {
+        setHighlighted(state => !state);
+    }
+    let style = {};
+    if (highlighted) {
+        style.backgroundColor = 'orange';
+    }
+
+    //useEffect on every change of state
+    useEffect(() => {
+        if (highlighted) {
+            console.log(`${props.title} selected`);
+        } else {
+            console.log(`${props.title} de-selected`);
+        }
+
+    }, [highlighted, props.title]);
+
+    return (<li onClick={clickHandler} style={style}>
         <img src={props.imgUrl} alt="promo-deal" />
         <section className="info">
             <div>
