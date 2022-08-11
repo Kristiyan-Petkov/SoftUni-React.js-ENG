@@ -1,17 +1,17 @@
 export const PromoDeal = (props) => {
     return (<li>
-        <img src={props.src} alt="promo-deal" />
+        <img src={props.imgUrl} alt="promo-deal" />
         <section className="info">
             <div>
-                <h3>{props.details.title}</h3>
-                <p>{props.details.subTitle}</p>
+                <h3>{props.title}</h3>
+                <p>{props.subTitle}</p>
             </div>
             <div>
-                {props.details.price}€/h
+                {props.price}€/h
             </div>
         </section>
         <section className="moreInfo">
-            <p>{props.details.description}</p>
+            <p>{props.description}</p>
             <button>GET TODAY</button>
         </section>
     </li>)
