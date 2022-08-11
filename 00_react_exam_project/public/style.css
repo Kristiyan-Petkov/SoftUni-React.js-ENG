@@ -199,6 +199,7 @@ body>main>section.hot-promos>p {
     color: #1582B6;
     border: #1582B6 solid 2px;
     padding: 7px;
+    margin: 5px;
 }
 
 .moreInfo button:hover {
@@ -208,6 +209,7 @@ body>main>section.hot-promos>p {
     border: #1582B6 solid 2px;
     padding: 7px;
     cursor: pointer;
+    margin: 5px;
 }
 
 /* footer */
@@ -219,7 +221,7 @@ footer {
 
 footer p {
     display: inline-block;
-    color: #5a7c8a;
+    color: #ffffff;
     width: 87%;
 }
 
@@ -228,11 +230,11 @@ footer ul {
 }
 
 footer a {
-    color: #5a7c8a;
+    color: #ffffff;
 }
 
 footer i {
-    border: 1px solid #5a7c8a;
+    border: 1px solid #ffffff;
     border-radius: 50%;
     padding: 5px;
 }
