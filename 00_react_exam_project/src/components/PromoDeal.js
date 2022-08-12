@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import styles from './PromoDeal.module.css'
 
 export const PromoDeal = (props) => {
     //useEffect only on load
@@ -7,7 +8,7 @@ export const PromoDeal = (props) => {
     }, []);
 
     const [highlighted, setHighlighted] = useState(false);
-    const [marked, setMarked] = useState(false);
+    const [deleted, setDeleted] = useState(false);
 
     //to select elements
     const clickHandler = () => {
@@ -15,13 +16,13 @@ export const PromoDeal = (props) => {
     }
 
     const deleteHandler = () => {
-        setMarked(state => !state);
+        setDeleted(true);
     }
     let style = {};
     if (highlighted) {
         style.backgroundColor = 'orange';
     }
-    if (marked) {
+    if (deleted) {
         style.backgroundColor = 'red';
     }
 
@@ -37,10 +38,10 @@ export const PromoDeal = (props) => {
 
     //to delete an element
     useEffect(() => {
-        if (marked) {
-            console.log(`${props.title} promo to be removed`);
+        if (deleted) {
+            console.log(`${props.title} has been removed`);
         }
-    }, [marked, props.title]);
+    }, [deleted, props.title]);
 
     return (<li style={style}>
         <img src={props.imgUrl} alt="promo-deal" />
@@ -56,7 +57,7 @@ export const PromoDeal = (props) => {
         <section className="moreInfo">
             <p>{props.description}</p>
             <button onClick={clickHandler}>Highlight</button>
-            <button onClick={deleteHandler}>Delete</button>
+            <button style={styles} className={styles['delete-button']} onClick={deleteHandler}>Delete</button>
             <button>GET TODAY</button>
         </section>
     </li>)
