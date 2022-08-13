@@ -4,18 +4,14 @@ import { Search } from "./components/search/Search";
 import { UserList } from "./components/user-list/UserList";
 import './App.css';
 import {useState, useEffect} from "react";
-
-const baseUrl = "http://localhost:3005/api";
+import * as userService from "./services/userService";
 
 function App() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch(`${baseUrl}/users`)
-      .then(res => res.json())
-      .then(result => {
-        setUsers(result.users)
-      })
+    userService.getAll()
+      .then(users => setUsers(users));
   }, []);
 
   // console.log(users);
