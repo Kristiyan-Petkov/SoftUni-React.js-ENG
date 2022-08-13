@@ -13,3 +13,32 @@ export const getOne = async (userId) => {
 
     return result.user;
 }
+
+export const create = async (userData) => {
+    const newUser = {
+        "firstName": userData.firstName,
+        "lastName": userData.lastName,
+        "email": userData.email,
+        "imageUrl": userData.imageUrl,
+        "phoneNumber": userData.phoneNumber,
+        "address": {
+            "country": userData.country,
+            "city": userData.city,
+            "street": userData.street,
+            "streetNumber": userData.streetNumber
+        },
+
+    }
+
+    const response = await fetch(`${baseUrl}`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify(newUser),
+    });
+
+    const result = await response.json();
+    console.log(result);
+    return result;
+}

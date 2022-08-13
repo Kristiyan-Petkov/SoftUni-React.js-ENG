@@ -57,6 +57,19 @@ export const UserList = (props) => {
     setUserAction({ user: null, action: null })
   }
 
+  const addUserHandler = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const userData = Object.fromEntries(formData);
+
+    userService.create(userData)
+      .then(user => {
+        console.log(user);
+        detailsCloseHandler();
+      })
+  }
+
   return (
     <>
       <div className="table-wrapper">
@@ -154,6 +167,7 @@ export const UserList = (props) => {
         {userAction.action === UserActions.Add &&
           <AddUser
             onClose={detailsCloseHandler}
+            onAddUser={addUserHandler}
           />
         }
 
