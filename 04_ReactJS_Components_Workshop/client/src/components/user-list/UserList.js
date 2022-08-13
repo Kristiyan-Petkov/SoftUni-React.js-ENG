@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { UserItem } from "./user-item/UserItem";
 import * as userService from "../../services/userService";
 import { UserDetails } from "./user-details/UserDetails";
@@ -12,9 +12,15 @@ const UserActions = {
   Delete: "delete",
   Add: "add",
 }
-
-export const UserList = (props) => {
+// userlist props removed
+export const UserList = () => {
+  const [users, setUsers] = useState([]);
   const [userAction, setUserAction] = useState({ user: null, action: null });
+
+  useEffect(() => {
+    userService.getAll()
+      .then(users => setUsers(users));
+  }, []);
 
   const detailsClickHandler = (userId) => {
     userService.getOne(userId)
@@ -64,8 +70,8 @@ export const UserList = (props) => {
     const userData = Object.fromEntries(formData);
 
     userService.create(userData)
-      .then(user => {
-        console.log(user);
+      .then(result => {
+        setUsers(oldUsers => [...oldUsers, result.user]);
         detailsCloseHandler();
       })
   }
@@ -228,7 +234,7 @@ export const UserList = (props) => {
           </thead>
           <tbody>
             {/* <!-- Table row components coming from user-item--> */}
-            {props.users
+            {users
               .map(user =>
                 <UserItem
                   key={user._id}

@@ -3,18 +3,18 @@ import { Footer } from "./components/common/Footer";
 import { Search } from "./components/search/Search";
 import { UserList } from "./components/user-list/UserList";
 import './App.css';
-import {useState, useEffect} from "react";
-import * as userService from "./services/userService";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    userService.getAll()
-      .then(users => setUsers(users));
-  }, []);
+  // useEffect(() => {
+  //   userService.getAll()
+  //     .then(users => setUsers(users));
+  // }, []);
 
-  // console.log(users);
+  // const addUserHandler = (user) => {
+
+  // }
 
   return (
     <div className="App">
@@ -23,7 +23,7 @@ function App() {
         {/* <!-- Section component  --> */}
         <section className="card users-container">
           <Search />
-          <UserList users={users}/>
+          <UserList />
         </section>
       </main>
       <Footer />
