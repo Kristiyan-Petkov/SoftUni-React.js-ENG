@@ -41,3 +41,31 @@ export const create = async (userData) => {
     const result = await response.json();
     return result;
 }
+
+export const editUser = async (userData) => {
+    const editedUserData = {
+        "firstName": userData.firstName,
+        "lastName": userData.lastName,
+        "email": userData.email,
+        "imageUrl": userData.imageUrl,
+        "phoneNumber": userData.phoneNumber,
+        "address": {
+            "country": userData.country,
+            "city": userData.city,
+            "street": userData.street,
+            "streetNumber": userData.streetNumber
+        },
+
+    }
+
+    const response = await fetch(`${baseUrl}/${userData._id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify(editedUserData),
+    });
+
+    const result = await response.json();
+    return result;
+}

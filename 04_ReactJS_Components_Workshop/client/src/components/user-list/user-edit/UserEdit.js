@@ -1,6 +1,7 @@
 export const UserEdit = ({
     user,
-    onClose
+    onClose,
+    onUserEdit,
 }) => {
     return (<div className="overlay">
       <div className="backdrop" onClick={onClose}></div>
@@ -115,7 +116,7 @@ export const UserEdit = ({
               </div>
             </div>
             <div id="form-actions">
-              <button id="action-save" className="btn" type="submit">Save</button>
+              <button id="action-save" className="btn" type="submit" onClick={onUserEdit}>Save</button>
               <button id="action-cancel" className="btn" type="button" onClick={onClose}>
                 Cancel
               </button>
