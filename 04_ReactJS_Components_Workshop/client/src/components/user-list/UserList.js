@@ -63,12 +63,7 @@ export const UserList = () => {
     setUserAction({ user: null, action: null })
   }
 
-  const addUserHandler = (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.target);
-    const userData = Object.fromEntries(formData);
-
+  const addUserHandler = (userData) => {
     userService.create(userData)
       .then(result => {
         setUsers(oldUsers => [...oldUsers, result.user]);
@@ -76,7 +71,21 @@ export const UserList = () => {
       })
   }
 
-  
+  // Uncontrolled COMPONENT
+  // const addUserHandler = (e) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData(e.target);
+  //   const userData = Object.fromEntries(formData);
+
+  //   userService.create(userData)
+  //     .then(result => {
+  //       setUsers(oldUsers => [...oldUsers, result.user]);
+  //       detailsCloseHandler();
+  //     })
+  // }
+
+
   const editUserHandler = (e) => {
     e.preventDefault();
 

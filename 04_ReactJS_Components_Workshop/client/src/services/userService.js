@@ -22,10 +22,10 @@ export const create = async (userData) => {
         "imageUrl": userData.imageUrl,
         "phoneNumber": userData.phoneNumber,
         "address": {
-            "country": userData.country,
-            "city": userData.city,
-            "street": userData.street,
-            "streetNumber": userData.streetNumber
+            "country": userData.address.country,
+            "city": userData.address.city,
+            "street": userData.address.street,
+            "streetNumber": userData.address.streetNumber
         },
 
     }
