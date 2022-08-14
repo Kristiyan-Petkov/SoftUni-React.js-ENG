@@ -76,17 +76,20 @@ export const UserList = () => {
       })
   }
 
-  //ISSUE HERE!!!
+  
   const editUserHandler = (e) => {
     e.preventDefault();
-    console.log(e);
 
     const formData = new FormData(e.target);
     const userData = Object.fromEntries(formData);
+    userData.userId = e.target.id
 
     userService.editUser(userData)
       .then(result => {
-        setUsers(oldUsers => [...oldUsers, result.user]);
+        setUsers(function (oldUsers) {
+          const filteredOldUsers = oldUsers.filter(x => x._id !== result.user._id);
+          return [...filteredOldUsers, result.user]
+        })
         detailsCloseHandler();
       })
   }

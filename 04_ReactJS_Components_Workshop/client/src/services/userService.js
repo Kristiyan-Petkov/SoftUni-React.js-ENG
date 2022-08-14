@@ -58,7 +58,7 @@ export const editUser = async (userData) => {
 
     }
 
-    const response = await fetch(`${baseUrl}/${userData._id}`, {
+    const response = await fetch(`${baseUrl}/${userData.userId}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json',
