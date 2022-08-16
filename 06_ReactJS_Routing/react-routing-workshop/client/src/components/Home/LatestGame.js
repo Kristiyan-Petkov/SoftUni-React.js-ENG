@@ -4,7 +4,7 @@ const LatestGame = ({
     return(
         <div className="game">
                     <div className="image-wrap">
-                        <img src={game.imageUrl} />
+                        <img src={game.imageUrl} alt={game.title}/>
                     </div>
                     <h3>{game.title}</h3>
                     <div className="rating">
@@ -15,7 +15,7 @@ const LatestGame = ({
                         <span>☆</span>
                     </div>
                     <div className="data-buttons">
-                        <a href="#" className="btn details-btn">
+                        <a href="/" className="btn details-btn">
                             Details
                         </a>
                     </div>
