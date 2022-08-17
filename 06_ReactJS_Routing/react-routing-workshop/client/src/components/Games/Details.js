@@ -5,16 +5,18 @@ const Details = ({
     games,
     addComment
 }) => {
-    const {gameId} = useParams();
+    const { gameId } = useParams();
     const [comment, setComment] = useState({
         username: '',
-        comment:''
+        comment: ''
     });
 
     const game = games.find(x => x._id === gameId);
 
     const addCommentHandler = (e) => {
         e.preventDefault();
+        // console.log(gameId);
+        // console.log(`${comment.username}: ${comment.comment}`);
         addComment(gameId, `${comment.username}: ${comment.comment}`);
     };
 
@@ -49,6 +51,14 @@ const Details = ({
                         <li className="comment">
                             <p>Content: The best game.</p>
                         </li>
+                        <li className="comment">
+                            <p>{game.comments}</p>
+                        </li>
+                        {/* {game.comments?.map(x =>
+                            <li className="comment">
+                                <p>{x}</p>
+                            </li>
+                        )} */}
                     </ul>
                     {/* Display paragraph: If there are no games in the database */}
                     <p className="no-comment">No comments.</p>
