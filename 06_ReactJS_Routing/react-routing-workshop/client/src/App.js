@@ -13,12 +13,25 @@ import * as gameService from './services/gameService';
 function App() {
   const [games, setGames] = useState([]);
 
-    useEffect(() => {
-        gameService.getAll()
-        .then(result => {
-            setGames(result);
-        });
-    }, []);
+  const addComment = (gameId, comment) => {
+    setGames(state => {
+      const game = state.find(x => x._id === gameId);
+      const comments = game.comments;
+      comments.push(comment);
+
+      return [
+        ...state.filter(x => x._id !== gameId),
+        {game, comments: comments},
+      ]
+    })
+  }
+
+  useEffect(() => {
+    gameService.getAll()
+      .then(result => {
+        setGames(result);
+      });
+  }, []);
 
   return (
     <div id="box">
@@ -26,15 +39,15 @@ function App() {
       {/* Main Content */}
       <main id="main-content"></main>
       <Routes>
-        <Route path="/" element={<Home games={games}/>}/>
-        <Route path="/catalog" element={<Catalogue games={games}/>}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/create" element={<Create />}/>
-        <Route path="/catalog/:gameId" element={<Details />}/>
+        <Route path="/" element={<Home games={games} />} />
+        <Route path="/catalog" element={<Catalogue games={games} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/catalog/:gameId" element={<Details games={games} addComment={addComment}/>} />
       </Routes>
 
-      
+
 
       {/* Login Page ( Only for Guest users ) */}
       {/* Register Page ( Only for Guest users ) */}
