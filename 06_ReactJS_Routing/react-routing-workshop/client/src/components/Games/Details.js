@@ -32,7 +32,7 @@ const Details = ({
             <h1>Game Details</h1>
             <div className="info-section">
                 <div className="game-header">
-                    <img className="game-img" src={game.imageUrl} />
+                    <img className="game-img" src={game.imageUrl} alt={game.title}/>
                     <h1>{game.title}</h1>
                     <span className="levels">MaxLevel: {game.maxLevel}</span>
                     <p className="type">{game.category}</p>
@@ -45,30 +45,21 @@ const Details = ({
                     <h2>Comments:</h2>
                     <ul>
                         {/* list all comments for current game (If any) */}
-                        <li className="comment">
-                            <p>Content: I rate this one quite highly.</p>
-                        </li>
-                        <li className="comment">
-                            <p>Content: The best game.</p>
-                        </li>
-                        <li className="comment">
-                            <p>{game.comments}</p>
-                        </li>
-                        {/* {game.comments?.map(x =>
-                            <li className="comment">
-                                <p>{x}</p>
-                            </li>
-                        )} */}
+                        {game.comments 
+                            ? (game.comments?.map(x =>
+                                <li className="comment">
+                                    <p>{x}</p>
+                                </li>))
+                            : <p className="no-comment">No comments.</p>
+                            }
                     </ul>
-                    {/* Display paragraph: If there are no games in the database */}
-                    <p className="no-comment">No comments.</p>
                 </div>
                 {/* Edit/Delete buttons ( Only for creator of this game )  */}
                 <div className="buttons">
-                    <a href="#" className="button">
+                    <a href="/" className="button">
                         Edit
                     </a>
-                    <a href="#" className="button">
+                    <a href="/" className="button">
                         Delete
                     </a>
                 </div>
